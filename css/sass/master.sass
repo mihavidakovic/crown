@@ -1,0 +1,283 @@
+body
+	margin: 0
+	padding: 0
+	
+html
+	box-sizing: border-box
+	
+*, *:before, *:after 
+	box-sizing: inherit
+
+=breakpoint($point)
+	@if $point == desktop
+		@media (min-width: 70em)  
+			@content 
+	@else if $point == laptop 
+		@media (min-width: 64em)  
+			@content 
+	@else if $point == tablet 
+		@media (max-width: 50em)  
+			@content 
+	@else if $point == phablet 
+		@media (max-width: 37.5em)   
+			@content 
+	@else if $point == mobileonly 
+		@media (max-width: 37.5em)   
+			@content 
+
+
+
+.container
+	width: 1024px
+	margin: 0 auto
+	+breakpoint(tablet)
+		width: 100%
+		margin: 0 0
+		padding: 0 20px
+	+breakpoint(phablet)
+		width: 100%
+		margin: 0 0
+		padding: 0 20px
+	+breakpoint(mobileonly)
+		width: 100%
+		margin: 0 0
+		padding: 0 20px
+
+.button
+	float: left
+	a
+		width: 100%
+		float: left
+		background-color: #fff
+		box-shadow: 0 4px 20px 0px rgba(#000, 0.17)  
+		padding: 14px 15px
+		text-align: center
+		border-radius: 20px  
+		color: #f7d498
+		text-transform: uppercase
+		font-family: 'Helvetica Neue'
+		font-weight: 400
+		text-decoration: none
+		font-size: 0.7em
+		letter-spacing: 0px 
+		transition: 200ms all ease-in-out
+		&:hover
+			transform: translateY(-3px)
+			box-shadow: 0 5px 30px 0px rgba(#000, 0.15) 
+
+.floating-footer
+	position: fixed
+	width: 100%
+	bottom: 0px
+	left: 0px
+	background-color: #282A34 
+	z-index: 10
+	padding: 25px 20px
+	+breakpoint(mobileonly)
+		width: calc(100% - 20px)
+		left: 10px
+		bottom: 10px
+		.left
+			width: 100% !important
+			p
+				text-align: center
+				margin-bottom: 15px !important
+				line-height: 1.4em !important 
+		.right
+			width: 100% !important
+			.input
+				width: 100% !important
+				background-color: transparent !important 
+				input
+					width: 100% !important
+					background-color: #fff !important 
+					border-radius: 25px 
+					padding: 20px !important 
+					margin-bottom: 10px
+				button
+					width: 190px !important
+					position: static !important
+					float: none !important
+					margin: 0px auto !important
+					display: block !important
+					padding: 15px 0 !important 
+					border-radius: 40px !important 
+	.left
+		width: 55%
+		float: left
+		p
+			margin: 0
+			font-family: 'Helvetica Neue'
+			font-size: 1em
+			letter-spacing: 6px 
+			text-transform: uppercase 
+			color: #ffc504   
+			line-height: 1.5em 
+	.right
+		width: 45%
+		float: right
+		.input
+			width: 100%
+			float: left
+			position: relative
+			background-color: #FFF 
+			-webkit-border-radius: 20px 
+			border-radius: 20px 
+			input
+				width: 60%
+				float: left
+				padding: 15px 20px 
+				border: none
+				outline-style: none
+				background-color: transparent 
+			button
+				position: absolute
+				top: 0
+				right: 0
+				height: 100%
+				width: 40%
+				background-color: #ffc504 
+				border: none
+				padding: 10px  
+				-webkit-border-radius: 20px 
+				border-radius: 20px 
+				font-family: 'Helvetica Neue'
+				font-size: 0.7em
+				text-transform: uppercase 
+				color: #fff   
+				outline-style: none
+				cursor: pointer
+				&:hover
+					background-color: #e8b819 
+
+section
+	width: 100%
+	float: left
+	border-bottom: 1px solid rgba(#000, 0.1)
+	+breakpoint(tablet)
+		.image
+			width: 55% !important
+		.content
+			width: 45% !important
+	+breakpoint(phablet)
+		.image
+			width: 100% !important
+		.content
+			width: 100% !important
+	+breakpoint(mobileonly)
+		.image
+			width: 100% !important
+		.content
+			width: 100% !important
+	.image
+		width: 40%
+		position: relative
+		margin-top: 90px
+		img
+			transform: translateY(5px)
+	.content
+		width: 55%
+		h3
+			margin-top: 200px
+			font-family: 'Helvetica Neue'
+			text-transform: uppercase 
+			font-weight: 400
+			letter-spacing: 6px  
+			font-size: 1.1em  
+			color: rgba(#000, 0.8) 
+			margin-bottom: 30px
+			+breakpoint(mobileonly)
+				margin-top: 100px
+		p
+			margin: 0
+			width: 100%
+			float: left
+			font-family: 'Helvetica Neue'
+			font-weight: 400 
+			text-align: justify
+			font-size: 0.8em 
+			color: rgba(#000, 0.8) 
+			line-height: 1.7em 
+			+breakpoint(mobileonly)
+				font-size: 1em 
+
+.header
+	background-color: #ffdc04 
+	position: relative
+	border-bottom: none 
+	+breakpoint(phablet)
+		text-align: center
+		.content
+			padding-top: 50px !important
+			.button
+				float: none
+				margin: 0 auto
+				display: block
+				width: 120px
+	+breakpoint(mobileonly)
+		text-align: center
+		.content
+			width: 100%
+			padding-top: 50px !important
+			.button
+				float: none
+				margin: 0 auto
+				display: block
+				width: 120px
+	.image
+		float: left
+		margin-top: 0
+		img
+			width: 350px 
+			position: relative
+			float: left
+			transform: translateY(60px)
+			z-index: 20
+			+breakpoint(phablet)
+				width: 300px
+				transform: translateY(60px) translateX(-10px)
+	.content
+		float: right
+		padding-top: 100px
+		img
+			width: 150px
+		h2
+			font-family: 'Playfair Display'
+			font-size: 2.2em  
+			font-weight: 800
+			width: 70%
+			+breakpoint(mobileonly)
+				width: 100%
+				margin: 50px auto
+		.button
+			width: 150px
+.align-left
+	overflow: hidden
+	.content
+		float: left
+	.image
+		float: right
+		position: relative
+		+breakpoint(mobileonly)
+			img
+				width: 100% !important
+		img
+			width: 350px
+			height: 100%
+			position: relative
+
+.align-right
+	overflow: hidden
+	.content
+		float: right
+	.image
+		float: left
+		position: relative
+		+breakpoint(mobileonly)
+			img
+				width: 100% !important
+		img
+			width: 350px
+			height: 100%
+			position: relative
+			bottom: 0
